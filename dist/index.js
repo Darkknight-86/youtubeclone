@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fluent_ffmpeg_1 = __importDefault(require("fluent-ffmpeg")); /* wrapper around ffmpeg cli tool */
 const app = (0, express_1.default)();
-app.use(express_1.default.json());
+app.use(express_1.default.json()); // middleware to parse JSON bodies in incoming requests, without this JSON body req on PM won't work
 app.post("/process-video", (req, res) => {
     // get path of the input video file from the request body
     const inputFilePath = req.body.inputFilePath;
